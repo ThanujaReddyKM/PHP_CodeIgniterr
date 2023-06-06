@@ -1,0 +1,4 @@
+emp_id,emp_name,email,gender,department,address,salary
+101,aaa,aaa@gmail.com,F,accounts,india,12332.43
+102,bbb,bbb@gmail.com,M,HR,UK,21342
+103,ccc,ccc@gmail.com,f,admin,USA,23417.6
