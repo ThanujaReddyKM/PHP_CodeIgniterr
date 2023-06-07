@@ -34,8 +34,7 @@ public function create()
 				//$this->form_validation->set_rules('image','Image','trim|required');
 				
 		if($this->form_validation->run() == TRUE)
-		{
-		
+		{		
 			if(!empty($_FILES['image']['name']))
 			{
 				//Now user as selected a file so we will proceed.
@@ -70,19 +69,14 @@ public function create()
 							$formArray['created_at']= date('Y-m-d H:i:s');
 							$this->Category_model->create($formArray);
 							$this->session->set_flashdata('success','Category added successfully.');
-							redirect(base_url().'admin/category/index');
-				
-			}
-
-	
+							redirect(base_url().'admin/category/index');				
+			}	
 	}
 	else
 	{
 		//will show errors.
 		$this->load->view('admin/category/create');
 	}
-	
-
 }
 //This method will show category edit page.
 public function edit($id)
@@ -93,8 +87,7 @@ public function edit($id)
 	 {
 	 	$this->session->set_flashdata('error','Category not found');
 	 	redirect (base_url().'admin/category/index');
-	 }
-	 
+	 }	 
 	 			$this->load->helper('common_helper');
 	   			$config['upload_path']     = './public/uploads/category/';
                 $config['allowed_types']   = 'gif|jpg|png';
@@ -109,13 +102,12 @@ public function edit($id)
 				if($this->form_validation->run() == TRUE)
 				{
 							if(!empty($_FILES['image']['name']))
-			{
+				{
 				//Now user as selected a file so we will proceed.
 				 	if($this->upload->do_upload('image'))
 	                {
 	                	//File uploaded sucessfully.	                	
 	                	$data = $this->upload->data();
-
 	                	resizeImage($config['upload_path'].$data['file_name'],$config['upload_path'].'thumb/'.$data['file_name'],300,270);
 
 	                		$formArray['name']=$this->input->post('name');	
@@ -134,16 +126,14 @@ public function edit($id)
 							}
 
 							$this->session->set_flashdata('success','Category updated successfully.');
-							redirect(base_url().'admin/category/index');
-	                   
+							redirect(base_url().'admin/category/index');	                   
 	                }
 	                else
 	                {
 	                      $error = $this->upload->display_errors('<p class="invalid-feedback">','</p>');
 	                      $data['errorImageUpload'] = $error;
 	                      $data['category']= $category;
-						$this->load->view('admin/category/edit',$data);
-	                    
+						$this->load->view('admin/category/edit',$data);	                    
                 	}
 			}
 			else
