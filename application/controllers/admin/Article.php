@@ -53,6 +53,7 @@ class Article extends CI_Controller {
 		$articles = $this->Article_model->getArticles($param);
 
 		$data['q'] = $this->input->get('q');
+		dsfkj
 		$data['articles'] = $articles;
 		$data['pagination_links'] = $pagination_links;
 		// print_r($articles); 
