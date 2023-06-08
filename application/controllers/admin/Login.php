@@ -7,7 +7,6 @@ class Login extends CI_Controller {
 		// echo password_hash('sorun', PASSWORD_DEFAULT);
 		$this->load->library('form_validation');
 		$this->load->view('admin/login');
-		
 	}
 
 
