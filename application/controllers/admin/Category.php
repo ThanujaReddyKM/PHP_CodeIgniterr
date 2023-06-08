@@ -32,7 +32,8 @@ public function create()
 				$this->form_validation->set_error_delimiters('<p class="invalid-feedback">','</p>');
 				$this->form_validation->set_rules('name','Name','trim|required');
 				//$this->form_validation->set_rules('image','Image','trim|required');
-				
+				 
+				 
 		if($this->form_validation->run() == TRUE)
 		{		
 			if(!empty($_FILES['image']['name']))
