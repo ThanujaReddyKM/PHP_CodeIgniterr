@@ -1,0 +1,19 @@
+#navbarSupportedContent {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar .navbar-nav .nav-link {
+  color:Black;
+  font-weight: 500;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-transform: uppercase;
+}
+
+.navbar-brand{
+    font-weight: 500;
+}
+.carousel-item{
+  height: 450px;
+}
