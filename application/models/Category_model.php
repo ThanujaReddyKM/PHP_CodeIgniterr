@@ -38,6 +38,12 @@ class Category_model extends CI_Model{
 		$this->db->where('id',$id);
 		$this->db->delete('categories');
 	}
+
+		public function getCategoriesFront($params=[]){
+		$this->db->where('categories.status',1); 
+		$result = $this->db->get('categories')->result_array();
+		 return $result;
+		}
 }
 
 ?>

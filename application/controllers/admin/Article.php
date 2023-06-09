@@ -6,7 +6,7 @@ class Article extends CI_Controller {
 	//This method will show article listing page.
 	public function index($page=1)
 	{
-		$perpage = 5;
+		$perpage = 1;
 		$param['offset'] = $perpage;
 		$param['limit'] = ($page*$perpage)-$perpage;
 		$param['q'] = $this->input->get('q');
@@ -53,7 +53,6 @@ class Article extends CI_Controller {
 		$articles = $this->Article_model->getArticles($param);
 
 		$data['q'] = $this->input->get('q');
-		dsfkj
 		$data['articles'] = $articles;
 		$data['pagination_links'] = $pagination_links;
 		// print_r($articles); 
@@ -140,7 +139,7 @@ class Article extends CI_Controller {
 	//This method will show article edit page.
 	public function edit()
 	{
-
+		
 	}
 	//This method will show article delete page.
 	public function delete()

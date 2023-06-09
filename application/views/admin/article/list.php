@@ -94,7 +94,7 @@
 							 	</td>
 							 
 							 	<td class="text-center">
-							 		<a href="" class="btn btn-sm btn-primary">
+							 		<a href="<?php echo base_url().'admin/article/edit/'.$article['id']; ?>" class="btn btn-sm btn-primary">
 							 			<i class="far fa-edit"></i>
 							 		</a>
 							 		<a href="" class="btn btn-sm btn-danger">

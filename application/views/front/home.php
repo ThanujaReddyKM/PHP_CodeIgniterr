@@ -1,48 +1,5 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CodeIgniter Web Application.</title>
-    <link rel="stylesheet" href="<?php echo base_url('public/css/bootstrap.min.css') ?>">
-    <link rel="stylesheet" href="<?php echo base_url('public/css/style.css') ?>">
 
-  </head>
-  <body>
-
-  	  	<header class="bg-light">
-  	  <div class="container">
-  	    <nav class="navbar navbar-expand-lg bg-body-tertiary pt-3 pb-3">
-  	      <a class="navbar-brand" href="<?php echo base_url('public/admin/home')?>">CodeIgniter Web Application</a>
-  	      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-  	        <span class="navbar-toggler-icon"></span>
-  	      </button>
-  	      <!--    <div class="collapse navbar-collapse right-align" id="navbarSupportedContent"><ul class="navbar-nav ml-auto"> -->
-  	      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-  	        <ul class="navbar-nav">
-  	          <li class="nav-item active">
-  	            <a class="nav-link" href="<?php echo base_url().'admin/home/'?>">Home</a>
-  	          </li>
-  	          <li class="nav-item">
-  	            <a class="nav-link" href="#">About Us</a>
-  	          </li>
-  	          <li class="nav-item">
-  	            <a class="nav-link" href="#">Services</a>
-  	          </li>
-  	          <li class="nav-item">
-  	            <a class="nav-link" href="#">Blog</a>
-  	          </li>
-  	          <li class="nav-item">
-  	            <a class="nav-link" href="#">Categories</a>
-  	          </li>
-  	          <li class="nav-item">
-  	            <a class="nav-link" href="#">Contact Us</a>
-  	          </li>
-  	        </ul>
-  	      </div>
-  	    </nav>
-  	  </div>
-  	</header>
+<?php $this->load->view('front/header') ?>
 
 	<!-- Carosel -->
 	<div id="carouselExampleFade" class="carousel slide carousel-fade">
@@ -123,21 +80,32 @@
 		</div>
 		</div>
 
+
+<?php if(!empty($articles)) {?>
+
+
+
 	<div class="pb-4 pt-4">
 		<div class="container">
 			<h3 class="pt-4 pb-3" >LATEST BLOGS</h3>
 
 			<div class="row">
+				<?php foreach($articles as $article) { ?>
 				<div class="col-md-3">
 					<div class="card h-100">
-					  <img src="<?php echo base_url('public/images/box1.jpg') ?>" class="card-img-top" alt="...">
+						<?php if(file_exists('./public/uploads/articles/thumb_admin/'.$article['image'])) { ?>
+
+					  <img src="<?php echo base_url('./public/uploads/articles/thumb_admin/'.$article['image']); ?>" class="card-img-top" alt="...">
+
+						<?php } ?>
 					  <div class="card-body">
-					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <p class="card-text"><?php echo $article['title']; ?></p>
 					  </div>
 					</div>
 				</div>
-
-				<div class="col-md-3">
+			<?php } ?>
+ 
+<!-- 				<div class="col-md-3">
 					<div class="card h-100">
 					  <img src="<?php echo base_url('public/images/box2.jpg') ?>" class="card-img-top" alt="...">
 					  <div class="card-body">
@@ -162,61 +130,15 @@
 					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 					  </div>
 					</div>
-				</div>
+				</div> -->
 
 			</div>
 
 		</div>
 	</div>
 
-	<footer class="bg-light pt-4 pb-4 mt-5 mb-5">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-3">
-					<h5>LOGO</h5>
-					<small class="text-muted">
-						<strong>Company Inc.</strong><br>
-						12/22 - Park Avenue Road Galaxy <br>
-						98XXXXXXXX<br>
-						example@example.com
-					</small>
-				</div>
+<?php } ?>
 
-				<div class="col-md-3">
-					<h5>Important Links</h5>
-					<ul class="list-unstyled text-small">
-						<li><a href="#" class="text-muted">About US</a></li>
-						<li><a href="#" class="text-muted" >Services</a></li>
-						<li><a href="#" class="text-muted" >Blog</a></li>
-						<li><a href="#" class="text-muted" >Categories</a></li>
-					</ul>
-				</div>
+	<?php $this->load->view('front/footer') ?>
 
-					<div class="col-md-3">
-					<h5>My Account</h5>
-					<ul class="list-unstyled text-small">
-						<li><a href="#" class="text-muted" >Login</a></li>
-						<li><a href="#" class="text-muted" >Register</a></li>
-						<li><a href="#" class="text-muted" >My Articles</a></li>
-					</ul>
-					</div>
-
-						<div class="col-md-3">
-					<h5>Support</h5>
-					<ul class="list-unstyled text-small">
-						<li><a href="#" class="text-muted">Contact US</a></li>
-					</ul>
-					</div>
-
-
-			</div>
-
-		</div>
-		
-	</footer>
-
-
-    <script src="<?php echo base_url('public/js/jquery-3.5.1.slim.min.js'); ?>"></script>
-	<script src="public/js/bootstrap.min.js" ></script>
-  </body>
-</html>
+	
