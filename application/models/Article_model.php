@@ -3,8 +3,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Article_model extends CI_Model{
 
-	public function getArticle(){
+	public function getArticle($id){
+		//$this->db->where('id',$id);
 
+		$this->db->select('articles.* ,categories.name as category_name');
+		$this->db->where('articles.id',$id);
+		$this->db->order_by('articles.created_at','DESC');
+		$this->db->join('categories','categories.id=articles.category','left');
+
+		$query = $this->db->get('articles');
+		$article = $query->row_array();
+		//echo $this->db->last_query();
+
+		return $article;
 	}
 
 	public function getArticles($param = array()){

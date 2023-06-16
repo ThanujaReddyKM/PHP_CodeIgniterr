@@ -19,7 +19,7 @@
 					?>
 						</a>
 						<div class="card-body pb-0 pt-0">
-						<a href="#">
+						<a href="<?php echo base_url('blog/category/'.$category['id']); ?>">
 						<h5 class="card-title"><?php echo $category['name']; ?> </h5>
 						</a>
 					</div>

@@ -6,9 +6,7 @@
 			<?php 
 			 if(!empty($articles)){
 			 		foreach ($articles as $article) {
-			 	// code...
-			 
-			 
+			 	// code...			 
 			  ?>
 
 			<div class="row mb-4">
@@ -25,9 +23,12 @@
 					<p class="bg-light pt-2 pb-2 pl-3">
 						<a href="#" class="text-muted text-uppercase"><?php echo $article['category_name']; ?></a>
 					</p>
-					<h3><a href="#"> <?php echo $article['title'] ?></a>
+					<h3><a href="<?php echo base_url('blog/detail/'.$article['id']); ?>"> <?php echo $article['title'] ?></a>
 					</h3>
-					<p><?php echo word_limiter(strip_tags($article['description']),50); ?> </p>
+					<p><?php echo word_limiter(strip_tags($article['description']),50); ?>
+					<a href="<?php echo base_url('blog/detail/'.$article['id']); ?>" class="text-muted">Read More</a>
+
+					 </p>
 
 					<p class="text-muted">Posted By<strong><?php echo $article['author'] ?></strong> on <strong><?php echo date('d M Y',strtotime($article['created_at']))  ?></strong></p>
 				</div>
@@ -35,6 +36,13 @@
 		<?php }
 		}
 	 ?>
+	 <div class="row">
+	 	<div class="col-md-12">
+	 		<?php 
+	 		echo $pagination_links;	 		
+	 		?>
+	 	</div>
+	 </div>
 		</div>
 	</div>
 

@@ -40,8 +40,6 @@ class Article extends CI_Controller {
 		$config['last_tag_close'] = "</li>";
 		$config['attributes'] = array('class'=> 'page-link');
 
-
-
 		$this->pagination->initialize($config);
 		$pagination_links =  $this->pagination->create_links();
 
