@@ -33,7 +33,7 @@
 						<div class="col-md-3">
 					<h5>Support</h5>
 					<ul class="list-unstyled text-small">
-						<li><a href="#" class="text-muted">Contact US</a></li>
+						<li><a href="<?php echo base_url('page/contact') ?> 		" class="text-muted">Contact US</a></li>
 					</ul>
 					</div>
 

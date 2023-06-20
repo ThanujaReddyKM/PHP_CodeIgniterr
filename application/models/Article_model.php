@@ -13,7 +13,7 @@ class Article_model extends CI_Model{
 
 		$query = $this->db->get('articles');
 		$article = $query->row_array();
-		//echo $this->db->last_query();
+		// echo $this->db->last_query();
 
 		return $article;
 	}
@@ -44,7 +44,12 @@ class Article_model extends CI_Model{
 					$this->db->or_like('author',trim($param['q']));
 				}
 
+				if(isset($param['category_id'])){
+					$this->db->where('category',$param['category_id']);
+				}
+
 			$count = $this->db->count_all_results('articles');
+			//echo $this->db->last_query();
 			 return $count;
 		} 
 

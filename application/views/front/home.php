@@ -93,6 +93,7 @@
 				<?php foreach($articles as $article) { ?>
 				<div class="col-md-3">
 					<div class="card h-100">
+						<a href="<?php echo base_url('blog/detail/'.$article['id'])?>">
 						<?php if(file_exists('./public/uploads/articles/thumb_admin/'.$article['image'])) { ?>
 
 					  <img src="<?php echo base_url('./public/uploads/articles/thumb_admin/'.$article['image']); ?>" class="card-img-top" alt="...">
@@ -100,6 +101,9 @@
 						<?php } ?>
 					  <div class="card-body">
 					    <p class="card-text"><?php echo $article['title']; ?></p>
+
+						<a class="btn btn-primary btn-sm" href="<?php echo base_url('blog/detail/'.$article['id'])?>">Read More </a>
+
 					  </div>
 					</div>
 				</div>
